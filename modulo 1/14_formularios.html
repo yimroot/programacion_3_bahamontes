@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>formularios</title>
 </head>
+
 <body>
     <h1>formularios</h1>
     <form action="/procesar" method="post">
@@ -56,11 +58,194 @@
                 <td>
                     <label for="Volumen">Volumen<span id="val-vol">50</span></label><br></label>
                     <input type="range" id="volumen" name="volumen" min="0" max="120" value="50"
-                    oninput="document.getElementById('val-vol').textContent=this.value">
-                    
+                        oninput="document.getElementById('val-vol').textContent=this.value">
+
                 </td>
             </tr>
+            <!--tipos numericos-->
+
+            <tr>
+                <td>
+                    <label for="fehca ">Fecha de nacimiento </label><br>
+                    <input type="date" id="fecha" name="fecha">
+                <td>
+                    <label for="Hora">Hora de la cita</label>
+                    <input type="time" id="hora" name="hora">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="evento">Inicio de evento</label><br>
+                    <input type="datetime-local" id="evento" name="evento">
+                <td>
+                    <label for="mes">Mes de inicio</label>
+                    <input type="month" id="mes" name="mes">
+                </td>
+            </tr>
+
+            <!--checkbox y option-->
+            <tr>
+                <td>colspan="2">
+                    <h3>checkbox y options</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="acepto" name="acepto" value="si">
+                    <label for="aceptp">acepto los terminos y condiciones</label><br>
+                </td>
+                <td>
+                    <fieldset>
+                        <legend>
+                            Método de Pago
+                        </legend>
+                        <input type="radio" id="tarjeta" name="pago" value="tarjeta">
+                        <label for="tarjeta">Tarjeta de Crédito</label>
+                        <input type="radio" id="paypal" name="pago" value="paypal">
+                        <label for="hora">Paypal</label>
+                        <input type="radio" id="transferencia" name="pago" value="transferencia">
+                        <label for="transferencia">Transferencia Bancaria</label>
+                    </fieldset>
+                </td>
+            </tr>
+            <!--utiles-->
+            <tr>
+                <td colspan="2">
+                    <h3>Útiles</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="color">Color</label><br>
+                    <input type="color" id="color" name="color" value="#3b82f6">
+
+                </td>
+                <td>
+                    <label for="color">Foto de perfil:</label><br>
+                    <input type="file" id="foto" name="foto" value="image/">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="docs">Documentos</label><br>
+                    <input type="file" id="docs" name="documentos" accept=".pdf,.doc,.docx">
+
+                </td>
+                <td>
+                    <label for="color">Foto de perfil:</label><br>
+                    <input type="file" id="foto" name="foto" value="image/">
+                    <input type="hidden" id="token" name="token" value="abcd123xyz">
+                </td>
+            </tr>
+            <!--texarea y slect-->
+            <tr>
+                <td colspan="2">
+                    <h3>Textares y select</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="mensje">mensjae</label><br>
+                    <textarea id="mensjae" name="mensaje" rows="6" cols="50"
+                        placeholder="escriba tu mensaje aqui"></textarea>
+
+                </td>
+                <td>
+                    <!--select basico-->
+                    <label for="pais">Pais</label><br>
+                    <select id="pais" name="pais">
+                        <option value="">--seleccione un Pais</option>
+                        <option value="co">--colombia</option>
+                        <option value="ec">--ecuador</option>
+                        <option value="es">--españa</option>
+                        <option value="ve">--venezuela</option>
+                    </select>
+                </td>
+
+                <td>
+                    <!--select con optgroup-->
+                    <label for="ciudad">Ciudades:</label><br>
+                    <select id="ciudad" name="ciudad">
+                        <optgroup label="España">
+                            <option value="mad">Madrid</option>
+                            <option value="bcn">Barcelona</option>
+                            <option value="sev">Sevilla</option>
+                        </optgroup>
+                        <optgroup label="Mexico">
+                            <option value="mad">Ciudad de Mexico</option>
+                            <option value="gdl">Guadalajara</option>
+                        </optgroup>
+                        <optgroup label="Venezuela">
+                            <option value="cor">coro</option>
+                            <option value="gdl">mar</option>
+                        </optgroup>
+                    </select>
+
+                </td>
+                <td>
+                    <!--select basico-->
+                    <label for="skill">Habilidades:</label><br>
+                    <select id="skill" name="habilidadedes[]" multiple size="4">
+                        <option value="html5">HTML5</option>
+                        <option value="css3">CSS3</option>
+                        <option value="js">Javascript</option>
+                        <option value="ts">Typescript</option>
+                    </select>
+
+                </td>
+
+
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </table>
+
+        <button type="ubmit">Enviar</button>
+        <button type="reset">Limpiar</button>
+        <button type="button">Aceptar</button>
+
+
+
+
+
+
+
+
     </form>
-    
+
 </body>
+
 </html>
