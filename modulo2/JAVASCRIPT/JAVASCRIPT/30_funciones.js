@@ -37,14 +37,14 @@ function saludar(nombre) {
   console.log(saludar("Luis"));  // "Hola, Luis!"
 
 
-  function sumar(a,b){
+  function sumarab(a,b){
     return a+b
   }
   resultado = sumar(45,5);
   console.log(resultado);
 
   // Sintaxis completa
-const sumar = (a, b) => {
+const sumarab= (a, b) => {
   return a + b;
 };
 
@@ -114,3 +114,61 @@ registrar("INFO", "Inicio", "Conexión OK", "Listo");
 // [INFO] Inicio
 // [INFO] Conexión OK
 // [INFO] Listo
+
+function registrarPersona(nombre, ...detalles) {
+  console.log(`--- Perfil de: ${nombre} ---`);
+  for (const dato of detalles) {
+    console.log(`Dato registrado: ${dato}`);
+  }
+}
+
+registrarPersona("Edison", 28, "Programador", "Quito", "EndeavourOS");
+
+// Spread con objetos
+const base     = { nombre: "Ana", edad: 28 };
+const ampliado = { ...base, ciudad: "Madrid" };
+console.log(ampliado);   // { nombre: 'Ana', edad: 28, ciudad: 'Madrid' }
+
+// Una función sin return devuelve undefined implícitamente
+function sinReturn() {
+  const x = 42;
+  // no hay return
+}
+console.log(sinReturn());   // undefined
+
+// return detiene la ejecución de la función
+function esPar(n) {
+  if (n % 2 === 0) {
+    return true;    // sale aquí si n es par
+  }
+  return false;     // solo llega aquí si n es impar
+}
+
+// Forma más concisa — devolver la expresión directamente
+const esParCorto = n => n % 2 === 0;
+
+console.log(esPar(4));         // true
+console.log(esParCorto(7));    // false
+const global = "soy global";   // accesible en todo el archivo
+
+function ejemploScope() {
+  const local = "soy local";   // solo accesible dentro de esta función
+  console.log(global);         // ✅ puede acceder a la variable global
+  console.log(local);          // ✅
+}
+
+ejemploScope();
+// console.log(local);         // ❌ ReferenceError — local no existe aquí
+
+// Block scope — const y let respetan los bloques { }
+{
+  const dentroDeBloque = "solo aquí";
+  console.log(dentroDeBloque);   // ✅
+}
+// console.log(dentroDeBloque);  // ❌ ReferenceError
+
+// var NO respeta el block scope — otra razón para no usarlo
+{
+  var escapó = "estoy en todos lados";
+}
+console.log(escapó);   // ✅ "estoy en todos lados" — comportamiento inesperado
