@@ -2,85 +2,84 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualización del DOM</title>
+    <title>dom12-crud-productos</title>
     <script src="dom12_crud_productos.js" defer></script>
     <style>
-        body{
+        body {
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        h2{
+        h2 {
             color: #333;
         }
-        table{
-            border-collapse: collapse;
+        table {
             width: 100%;
+            border-collapse: collapse;
             margin-top: 20px;
         }
-        th, td{
+        th, td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
         }
-        th{
+        th {
             background-color: #f2f2f2;
         }
-        tr:nth-child(even){
+        tr:nth-child(even) {
             background-color: #f9f9f9;
         }
         .formulario{
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            background-color: #f9f9f9;
+            background-color: #eef4fb;
+            border: 1px solid #b0fce8;
+            padding:20px;
+            margin-top:20px
         }
         .formulario input{
-            margin: 5px;
-            padding: 8px;
-            width: 200px;
+            margin:5px;
+            padding:8px;
+            width:200px;
         }
         .formulario input{
             width: 100px;
-            padding: 5px;
+            padding:5px;
             margin-bottom: 8px;
-
         }
         .btn-agregar:hover{
             background-color: #4CAF50;
-            color: white;
-        }
-        .btn-cancelar:hover{
-            background-color: #f44336;
-            color: white;
+            color:white;
         }
     </style>
 </head>
-<body> 
+<body>
+
     <h1 id="titulo">Eventos del DOM</h1>
-    <h2>Grud de productos Producto</h>
-    <div>
-        <h3>Agregar Producto</h3>
+    <h2>CRUD de Productos</h2>
+    <div class="formulario">
+        <h3>Agregar Nuevo Producto</h3>
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" placeholder="Nombre del producto">
-        <label for="descripcion">Descripción:</label>
-        <input type="text" id="descripcion" placeholder="Descripción del producto">
+        <input id="nombre" type="text" placeholder="Nombre del producto">
+        <label for="descripcion">Descripcion:</label>
+        <input id="descripcion" type="text" placeholder="Descripcion">
         <label for="precio">Precio:</label>
-        <input type="number" id="precio" placeholder="Precio del producto">
-        <button id="btnAgregar" class="btn-agregar">Agregar Producto</button>
-        <button id="btncancelar" class="btn-cancelar">Cancelar</button>
+        <input id="precio" type="number" placeholder="precio">
+        <button id="btn_agregar" class="btn_agregar">Agregrar producto</button>
+        <button id="btn_cancelar" class="btn_cancelar">Cancelar</button>
     </div>
+
+
     <table>
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
+                <th>Descripción</th>
                 <th>Precio</th>
-                <th>Acciones</th>
+                <th>ACCIONES</th>
             </tr>
         </thead>
-        <tbody id="CuerpoTabla">    <!-- Aquí se agregarán los productos -->
-        </tbody>
-    </table>   
+        <tbody id="cuerpoTabla">
+            </tbody>
+    </table>
+
 </body>
 </html>

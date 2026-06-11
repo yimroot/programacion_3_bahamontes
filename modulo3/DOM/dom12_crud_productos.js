@@ -1,119 +1,117 @@
 const productos = [
     {
-        "id": 1,
-        "nombre": "Teclado",
-        "precio": 10.99,
-        "descripcion": "Teclado mecanico"
-
+        id: 1,
+        nombre: "Teclado",
+        descripcion: "Teclado mecánico",
+        precio: 10.99
     },
     {
-        "id": 2,
-        "nombre": "Mouse",
-        "precio": 5.99,
-        "descripcion": "Mouse inalámbrico"
+        id: 2,
+        nombre: "Mouse",
+        descripcion: "Mouse",
+        precio: 19.99
     },
     {
-        "id": 3,
-        "nombre": "Monitor",
-        "precio": 199.99,
-        "descripcion": "Monitor de 24 pulgadas"
+        id: 3,
+        nombre: "Monitor",
+        descripcion: "Monitor 19 pulgadas",
+        precio: 5.49
     }
 ];
 
+let idProductoEnEdicion = null;
+
 function renderProductos() {
-    const cuerpoTabla = document.getElementById('CuerpoTabla');
-    cuerpoTabla.innerHTML = '';
+    const cuerpoTabla = document.getElementById("cuerpoTabla");
+    cuerpoTabla.innerHTML = "";
+
     productos.forEach(producto => {
-        const fila = document.createElement('tr');
+        const fila = document.createElement("tr");
+
         fila.innerHTML = `
             <td>${producto.id}</td>
             <td>${producto.nombre}</td>
-            <td>${producto.precio}</td>
             <td>${producto.descripcion}</td>
+            <td>$${producto.precio.toFixed(2)}</td>
             <td>
-            <button onclick="eliminarProducto(${producto.id})">Eliminar</button>
+                <button onclick="editarProducto(${producto.id})">Editar</button>
+                <button onclick="eliminarProducto(${producto.id})">Eliminar</button>
             </td>
         `;
+
         cuerpoTabla.appendChild(fila);
     });
+}
 
+function guardarProducto() {
+    const nombre = document.getElementById("nombre").value.trim();
+    const descripcion = document.getElementById("descripcion").value.trim();
+    const precio = document.getElementById("precio").value.trim();
 
-
-function agregarProducto() {
-    const nombreInput = document.getElementById('nombre').value.trim();
-    const descripcionInput = document.getElementById('descripcion').value.trim();
-    const precioInput = document.getElementById('precio').value.trim();
-    if (!nombreInput || !descripcionInput || !precioInput) {
-        alert('Por favor, complete todos los campos.');
+    if (!nombre || !descripcion || !precio) {
+        alert("Complete todos los campos");
         return;
     }
-    const nuevoProducto = {
-        id: productos.length > 0 ? productos[productos.length - 1].id + 1 : 1,
-        nombre: nombreInput,
-        precio: parseFloat(precioInput),
-        descripcion: descripcionInput
+
+    if (idProductoEnEdicion !== null) {
+        const producto = productos.find(p => p.id === idProductoEnEdicion);
+
+        if (producto) {
+            producto.nombre = nombre;
+            producto.descripcion = descripcion;
+            producto.precio = parseFloat(precio);
+        }
+
+        idProductoEnEdicion = null;
+        document.getElementById("btn_agregar").textContent = "Agregar producto";
+    } else {
+        const nuevoProducto = {
+            id: productos.length > 0 ? Math.max(...productos.map(p => p.id)) + 1 : 1,
+            nombre,
+            descripcion,
+            precio: parseFloat(precio)
+        };
+
+        productos.push(nuevoProducto);
     }
-    productos.push(nuevoProducto);
+
+    limpiarFormulario();
     renderProductos();
-
-function limpiarFormulario() {
-    document.getElementById('nombre').value = '';
-    document.getElementById('descripcion').value = '';
-    document.getElementById('precio').value = ''; 
 }
-const botonAgregar = document.getElementById('btnAgregar');
-botonAgregar.addEventListener('click', () => {agregarProducto();
-});
 
-let idEditar = null;
+function editarProducto(id) {
+    const producto = productos.find(p => p.id === id);
+
+    if (!producto) return;
+
+    document.getElementById("nombre").value = producto.nombre;
+    document.getElementById("descripcion").value = producto.descripcion;
+    document.getElementById("precio").value = producto.precio;
+
+    idProductoEnEdicion = id;
+    document.getElementById("btn_agregar").textContent = "Actualizar";
+}
 
 function eliminarProducto(id) {
-    const producto= productos.find(p => p.id === id);
-    if (producto) {
-        document.getElementById('nombre').value = producto.nombre;
-        document.getElementById('descripcion').value = producto.descripcion;
-        document.getElementById('precio').value = producto.precio;
-        idEditar = id;
-        agregarBtn.
-    }
-}
-function actualizarProducto() {
-    const nombreInput = document.getElementById('nombre').value.trim();
-    const descripcionInput = document.getElementById('descripcion').value.trim();
-    const precioInput = document.getElementById('precio').value.trim();
-    if (!nombreInput || !descripcionInput || !precioInput) {
-        alert('Por favor, complete todos los campos.');
-        return;
-    }
-    const productoIndex = productos.findIndex(p => p.id === idEditar);
-    if (productoIndex !== -1) {
-        productos[productoIndex] = {
-            id: idEditar,
-            nombre: nombreInput,
-            precio: parseFloat(precioInput),
-            descripcion: descripcionInput
-        };
+    const indice = productos.findIndex(p => p.id === id);
+
+    if (indice !== -1) {
+        productos.splice(indice, 1);
         renderProductos();
-        limpiarFormulario();
-        agregarBtn.textContent = 'Agregar producto';
-        agregarBtn.removeEventListener('click', actualizarProducto);
-        agregarBtn.addEventListener('click', agregarProducto);
-        idEditar = null;
     }
+}
 
-}
-function cancelarEdicion() {
-    LimpiarFormulario();
-    agregarBtn.textContent = 'Agregar producto';
-    agregarBtn.removeEventListener('click', actualizarProducto);
-    agregarBtn.addEventListener('click', agregarProducto);
-    idEditar = null;
+function limpiarFormulario() {
+    document.getElementById("nombre").value = "";
+    document.getElementById("descripcion").value = "";
+    document.getElementById("precio").value = "";
 
+    idProductoEnEdicion = null;
+    document.getElementById("btn_agregar").textContent = "Agregar producto";
 }
-const cancelarBtn = document.getElementById('btnCancelar');
-cancelarBtn.addEventListener('click', cancelarEdicion);
-}
-window.onload = function() {
-    renderProductos();
-};
- 
+
+document.getElementById("btn_agregar").addEventListener("click", guardarProducto);
+
+document.getElementById("btn_cancelar").addEventListener("click", limpiarFormulario);
+
+window.onload = renderProductos;
