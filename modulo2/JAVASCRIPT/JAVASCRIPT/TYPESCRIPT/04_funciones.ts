@@ -87,3 +87,7 @@ console.log(`¿Hay stock de ${laptop.nombre}?:`, hayStock(laptop));
 console.log("\n--- EMPLEADOS ---");
 console.log(`Empleado 1: ${anaEmpleado.nombre} (${anaEmpleado.departamento})`);
 console.log(`Empleado 2: ${luis.nombre} - Salario: ${luis.salario}€`);
+
+
+
+@GET ()
