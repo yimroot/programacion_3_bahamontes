@@ -1,9 +1,8 @@
-// src/components/FruitList.tsx
-
 interface Fruit {
   name: string
   emoji: string
   calories: number
+  inSeason?: boolean
 }
 
 interface FruitListProps {
@@ -16,22 +15,32 @@ export default function FruitList({ fruits, title = 'Frutas' }: FruitListProps) 
     return <p style={{ color: '#999' }}>No hay frutas en la lista.</p>
   }
 
+  const sorted = [...fruits].sort((a, b) => a.calories - b.calories)
+
   return (
     <div>
       <h3 style={{ marginBottom: 8 }}>{title}</h3>
+
       <ul style={{ listStyle: 'none', padding: 0 }}>
-        {fruits.map((fruit) => (
+        {sorted.map((fruit, i) => (
           <li
-            key={fruit.name}
+            key={i}
             style={{
               display: 'flex',
               justifyContent: 'space-between',
               padding: '8px 0',
-              borderBottom: '1px solid #eee',
+              borderBottom: 'none',
+              backgroundColor: i % 2 === 0 ? '#fafafa' : '#ffffff',
             }}
           >
-            <span>{fruit.emoji} {fruit.name}</span>
-            <span style={{ color: '#888', fontSize: 13 }}>{fruit.calories} kcal</span>
+            <span>
+              {fruit.inSeason && '🌟 '}
+              {fruit.emoji} {fruit.name}
+            </span>
+
+            <span style={{ color: '#888', fontSize: 13 }}>
+              {fruit.calories} kcal
+            </span>
           </li>
         ))}
       </ul>
