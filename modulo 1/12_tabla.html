@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabla</title>
+</head>
+<body>
+    <h1>tabla</h1>
+    <table>
+        <tr>
+            <th>nombre</th>
+            <th>ciudad</th>
+            <th>edad</th>
+        </tr>
+        <tr>
+            <td>ana garcia</td>
+            <td>quito</td>
+            <td>28</td>
+        </tr>
+        <tr>
+            <td>edison</td>
+            <td>manta</td>
+            <td>29</td>
+        </tr>
+    </table>
+
+
+    <h1>tabla por secciones</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>producto</th>
+                <th>precio</th>
+                <th>stock</th>
+                <th>categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>monitor</td>
+                <td>450$</td>
+                <td>12</td>
+                <td>eletronica</td>
+            </tr>
+            <tr>
+                <td>teclado mecanico</td>
+                <td>79$</td>
+                <td>5</td>
+                <td>perifericos</td>
+            </tr>
+            <tr>
+                <td>mouse inalambrico</td>
+                <td>45$</td>
+                <td>15</td>
+                <td>perifericos</td>
+            </tr>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>total</td>
+                <td>1500$</td>
+                <td>32</td>
+                <td>perifericos</td>
+            </tr>
+        </tfoot>
+    </table>
+
+             <h1>tabla scope -clasificaciones</h1>
+            <table>
+                <thead>
+                     <tr>
+                         <th scope="col">Materia</th>
+                         <th scope="col">1er corte</th>
+                         <th scope="col">2do corte</th>
+                         <th scope="col">categoria</th>
+                     </tr>
+                </thead>
+                <tbody>
+                     <tr>
+                         <td scope="row">base de datos</td>
+                         <td>9</td>
+                         <td>8</td>
+                         <td>7</td>
+                     </tr>
+                     <tr>
+                         <td scope="row">base de datos</td>
+                          <td>10</td>
+                         <td>10</td>
+                         <td>9</td>
+                     </tr>
+                     <tr>
+                          <td scope="row">calidad de software</td>
+                          <td>7</td>
+                          <td>10</td>
+                          <td>9</td>
+                     </tr>
+                    </table>
+                     </tbody>
+
+            <h1>combinacion de celdas -clasificaciones</h1>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th rowspan="2">equipo</th>
+                        <th colspan="3">resultado</th>
+                        <th rowspan="2">puntos</th>
+                    </tr>
+                    <tr>
+                        <th>V</th>
+                        <th>E</th>
+                        <th>D</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Real Madrid</td>
+                        <td>22</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>71</td>
+                    </tr>
+                    <tr>
+                        <td>Basrcelona</td>
+                        <td>29</td>
+                        <td>6</td>
+                        <td>5</td>
+                        <td>66</td>
+                    </tr>
+                    <tr>
+                        <td>Atletico de Madrid</td>
+                        <td>18</td>
+                        <td>7</td>
+                        <td>5</td>
+                        <td>61</td>
+                    </tr>
+             </table>      
+        
+                </tbody>
+
+                <h1>titulo y resumen de clasificaciones</h1>
+                <table border="2">
+                    <caption>Notas del Primer Trimestre</caption>
+                    <thead>
+                        <tr>
+                            <th>Alumno</th>
+                            <th>Matemáticas</th>
+                            <th>Lenguaje</th>
+                            <th>Ciencias</th>
+                            <th>Promedio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Luis Ruiz</td>
+                            <td>9</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>8.7</td>
+                        </tr>
+                        <tr>
+                            <td>Jorge Lazaro</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>7.0</td>
+                        </tr>
+                        <tr>
+                            <td>Andreina Medina</td>
+                            <td>10</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>9.7</td>
+                        </tr>
+                    </tbody>
+                <tfoot>
+                    <tr>
+                        <td>media clase</td>
+                        <td>8.3</td>
+                        <td>8.0</td>
+                        <td>9.8</td>
+                        <td>8.5</td>
+
+                    </tr>
+                </tfoot>
+
+                <h1>Colprup -clasificaiones</h1>
+                <table border="2">
+                    <thead>
+                        <tr>
+                            <col style="background-color: aqua">
+                            <col style="background-color: beige">
+                            <col style="background-color:yellow">
+                            <col style="background-color:azure"> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jonny La Cruz</td>
+                            <td>Martes </td>
+                            <td>Miercoles </td>
+                            <td>Jueves</td>
+                        </tr>
+                        <tr>
+                            <td>Programacion I</td>
+                            <td>7:00 AM</td>
+                            <td>8:00 AM </td>
+                            <td>9:00 AM</td>
+                        </tr>
+                    </table>
+                    </tbody>
+</body>
+</html>
+</body>
+</html>

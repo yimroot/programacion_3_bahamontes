@@ -1,0 +1,66 @@
+h3{
+    color: rgb(74, 102, 93);
+    font-size: 6rem;
+}
+
+.parrafos{
+    color: rgb(89, 136, 28);
+    font-size: 1rem;
+}
+
+.producto-card{
+    background-color: antiquewhite;
+    border: 1px solid rgb(65, 56, 45);
+    border-radius: 8px;
+    padding: 16px;
+
+}
+
+.producto-nombre{
+    font-size: 1.1rem;
+    color: rgb(72, 39, 192);
+}
+
+.producto-precio{
+    font-size: 1.1rem;
+    color: brown;
+    font-weight: bold;
+
+}
+#parrafo-id{
+    font-size: 2.3rem;
+    color: rgb(14, 99, 49);
+    font-weight: bold;
+
+}
+
+*{
+    color: blue;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.menu>li{
+  
+    color: rgb(113, 223, 186);
+}
+
+.navbar a{
+    color: rgb(111, 141, 224);
+    text-decoration: none;
+}
+
+h4 , h5 ,h6{
+    color: rgb(81, 60, 114);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button.btn-primario{
+    background-color: rgb(216, 152, 213);
+    color: rgb(255, 255, 255);
+}
+button.btn-error{
+    background-color: rgb(169, 171, 194);
+    color: rgb(255, 255, 255);
+}
